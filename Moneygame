@@ -1,0 +1,52 @@
+#================Varibles==================
+money = 100
+#================Prompt=================
+def p2():
+    a = True
+    while a == True:
+        p2 = input("What would you like to do?(Spend/Make)  ").lower()
+        if p2 == "spend":
+            spend()
+        elif p2 == "make":
+            make()
+        else:
+            print("Invalid text try again")
+            
+#===============Make====================
+def make():
+    global money 
+    z = True
+    while z == True:
+        Mans = int(input("how much would you like to make?($10/$50/$100)   "))
+        if Mans > 0:
+            money = money + Mans
+            print("You added",Mans,"you now have",money,)
+            p2()
+#==============Spend=====================
+def spend():
+    global money 
+    x = True
+    while x == True:
+        ans =int(input("How much would you like to spend?   "))
+        if ans <= 0:
+            print("only postives bud")
+        elif ans > money:
+            print("you dont have enough broke boy")
+            q2 = input("Would you like to make some money?(Yes/No)  ").lower()
+            if q2 == "yes":
+                make()
+            elif q2 == "no":
+                print("Cya...")
+        elif ans > 0:
+            money = money - ans
+            print("You spent",ans,"you have",money,"left")
+            p2()
+#===============Prompt1=================
+def prompt():
+    print("Welcome, what would you like to do?")
+    pans = input("(Spend/Make)  ").lower()
+    if pans == "spend":
+        spend()
+    elif pans == "make":
+        make()
+prompt()
